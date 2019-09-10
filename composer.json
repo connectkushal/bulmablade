@@ -1,0 +1,25 @@
+{
+    "name": "connectkushal/bulmablade",
+    "description": "Laravel's default blade files using bulma css",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kushal",
+            "email": "connect.kushal@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Connectkushal\\Bulmablade\\":""
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Connectkushal\\Bulmablade\\BulmabladeServiceProvider"
+            ]
+        }
+    }
+}
