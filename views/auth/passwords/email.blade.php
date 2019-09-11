@@ -2,45 +2,58 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <div class="columns">
+        <div class="column is-8 is-offset-2">
+            <div class="box">
+                <p class="title">{{ __('Reset Password') }}</p>
+                <hr><br>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                <form method="POST" action="{{ route('password.email') }}">
+                    @csrf
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label for="email" class="label">{{ __('E-Mail Address') }}</label>
                         </div>
-                    @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control has-icons-left">
+                                    <input id="email" type="email" class="input{{ $errors->has('email') ? ' is-danger' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-envelope"></i>
                                     </span>
-                                @enderror
+                                </div>
+                                @if ($errors->has('email'))
+                                    <p class="help is-danger">
+                                        {{ $errors->first('email') }}
+                                    </p>
+                                @endif
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                    <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-link">
+                                {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>        
             </div>
+            <br>
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
         </div>
     </div>
 </div>

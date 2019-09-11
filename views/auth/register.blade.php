@@ -1,104 +1,114 @@
-@extends('app')
+@extends('layouts.app')
 
-@section('main')
-@include('partials.navbar')
-
-<section class="section">
+@section('content')
 <div class="container">
-<div class="box">
-<form method="POST" action="{{ route('register') }}">
-{{ csrf_field() }}		
-    <h1 class="title is-4">Register</h1>
+    <div class="columns">
+        <div class="column is-8 is-offset-2">
+            <div class="box">
+                <p class="title">{{ __('Register') }}</p>
+                <hr><br>
+            
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
 
-        <div class="field ">
-            <label class="label"> Username</label>
-            <div class="control has-icons-left">
-                <input 
-                    class="input" 
-                    type="text" 
-                    placeholder="Create a username" 
-                    name="name" value="{{ old('name') }}" 
-                    required autofocus
-                >
-                <span class="icon is-small is-left">
-                    <i class="fa fa-user"></i>
-                </span>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label for="name" class="label">{{ __('Name') }}</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="control is-expanded has-icons-left">
+                                    <input id="name" type="text" class="input{{ $errors->has('name') ? ' is-danger' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+
+                                    @if ($errors->has('name'))
+                                        <p class="help is-danger">
+                                            {{ $errors->first('name') }}
+                                        </p>
+                                    @endif
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label for="email" class="label">{{ __('E-Mail Address') }}</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                            <input id="email" type="email" class="input{{ $errors->has('email') ? ' is-danger' : '' }}" name="email" value="{{ old('email') }}" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+
+                            @if ($errors->has('email'))
+                                <span class="help is-danger">
+                                    {{ $errors->first('email') }}
+                                </span>
+                            @endif
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label for="password" class="label">{{ __('Password') }}</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                            <input id="password" type="password" class="input{{ $errors->has('password') ? ' is-danger' : '' }}" name="password" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+
+
+                            @if ($errors->has('password'))
+                                <span class="help is-danger">
+                                    {{ $errors->first('password') }}
+                                </span>
+                            @endif
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label for="password-confirm" class="label">{{ __('Confirm Password') }}</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input id="password-confirm" type="password" class="input" name="password_confirmation" required>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-link">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                    </div>
+                </form>
             </div>
-             @if ($errors->has('name'))
-                <p class="help is-danger is-size-6">
-                    {{ $errors->first('name') }}
-                </p>
-             @endif
         </div>
-
-        <div class="field ">
-            <label class="label"> Email</label>
-            <div class="control has-icons-left">
-                <input 
-                    class="input" 
-                    type="email" 
-                    placeholder="Enter your email id" 
-                    name="email" 
-                    value="{{ old('email') }}" 
-                    required autofocus
-                >
-                <span class="icon is-small is-left">
-                    <i class="fa fa-envelope"></i>
-                </span>
-            </div>
-             @if ($errors->has('email'))
-                <p class="help is-danger is-size-6 ">
-                    {{ $errors->first('email') }}
-                </p>
-             @endif
-        </div>
-
-        <div class="field ">
-            <label class="label">Password</label>
-            <div class="control has-icons-left">
-                <input 
-                    class="input" 
-                    type="password" 
-                    placeholder="Password" 
-                    name="password" 
-                    required  
-                >
-                <span class="icon is-small is-left">
-                    <i class="fa fa-lock"></i>
-                </span>
-            </div>
-             @if ($errors->has('password'))
-                <p class="help is-danger is-size-6">
-                    {{ $errors->first('password') }}
-                </p>
-             @endif
-        </div>
-
-        <div class="field ">
-            <label class="label">Confirm Password</label>
-            <div class="control has-icons-left">
-                <input 
-                    class="input" 
-                    type="password" 
-                    placeholder="Retype Password" 
-                    name="password_confirmation" 
-                    required 
-                >
-                <span class="icon is-small is-left">
-                    <i class="fa fa-lock"></i>
-                </span>
-            </div>
-        </div>
-
-        <div class="field">
-            <p class="control">
-                <button class="button is-info">
-                    Sign Up
-                </button>
-            </p>
-        </div>
-</form>
+    </div>
 </div>
-</div>
-</section>
 @endsection
