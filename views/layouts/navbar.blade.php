@@ -13,12 +13,11 @@
     </div>
 
     <div class="navbar-menu" id="navMenu">
-        <!-- Left Side Of Navbar -->
+        <!-- Left Side Of Navbar 
         <div class="navbar-start">
-            @include('articles.navbar-item')
 
-        </div>
-
+        </div>   -->
+            
         <!-- Right Side Of Navbar -->
         <div class="navbar-end">
             <!-- Authentication Links -->
