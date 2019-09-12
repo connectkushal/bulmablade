@@ -17,7 +17,7 @@ class InstallCommand extends \Illuminate\Console\Command
         /* } */
 
         \Artisan::call('vendor:publish', [
-            '--provider' => 'connectkushal/bulmablade',
+            '--provider' => 'Connectkushal\Bulmablade\BulmabladeServiceProvider',
             '--force' => true 
         ]);
 
