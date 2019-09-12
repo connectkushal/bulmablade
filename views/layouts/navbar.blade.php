@@ -26,7 +26,7 @@
                 <a class="navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
             @else
             <div class="navbar-item has-dropdown is-hoverable">                        
-                <a id="navbarDropdown" class="navbar-link" href="/profile/{{ Auth::user()->profile->username }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="navbar-link" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 
