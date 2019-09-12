@@ -1,27 +1,33 @@
-@extends('app')
+@extends('layouts.app')
 
-@section('main')
+@section('content')
 
-<section class="section">
 <div class="container">
-    <h1 class="title is-4">{{ __('Verify Your Email Address') }}</h1>
-        <div class="box">
-            @if (session('resent'))
-                <div class="has-text-danger">
-                    {{ __('A fresh verification link has been sent to your email address.') }}
-                </div>
-            @endif
+    <div class="columns">
+        <div class="column is-8 is-offset-2 ">
+            <div class="box">
+                <p class="title">{{ __('Verify Your Email Address') }}</p>
+                <hr>
+                @if (session('resent'))
+                    <div class="notification is-success">
+                        {{ __('A fresh verification link has been sent to your email address.') }}
+                    </div>
+                @endif
 
-            {{ __('Before proceeding, please check your email for a verification link.') }}
-            {{ __('If you did not receive the email') }},
+                <p class="content">
+                {{ __('Before proceeding, please check your email for a verification link.') }}
+                {{ __('If you did not receive the email') }},
 
-            <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                @csrf
-                <div class="container">
-                    <a class="button">{{ __('click here to request another') }}</a>
-                </div>
-            </form>
+                <form method="POST" action="{{ route('verification.resend') }}">
+                    @csrf
+                    <button class="button is-info">{{ __('click here to request another') }}</button>
+                </form>
+                </p>
+
+            </div>
         </div>
+    </div>
+
 </div>
-</section>
+
 @endsection

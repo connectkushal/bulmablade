@@ -23,7 +23,7 @@
                                         <i class="fas fa-envelope"></i>
                                     </span>
                                     @if ($errors->has('email'))
-                                        <p class="help is-danger">
+                                        <p class="help is-danger is-size-6">
                                             {{ $errors->first('email') }}
                                         </p>
                                     @endif
@@ -44,7 +44,7 @@
                                         <i class="fas fa-lock"></i>
                                     </span>
                                     @if ($errors->has('password'))
-                                        <p class="help is-danger">
+                                        <p class="help is-danger is-size-6">
                                             {{ $errors->first('password') }}
                                         </p>
                                     @endif
@@ -80,9 +80,9 @@
                                         {{ __('Login') }}
                                     </button>
 
-                                    <button class="button is-light" href="{{ route('password.request') }}">
+                                    <a class="button is-light" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
-                                    </button>
+                                    </a>
                                 </div>
                                 </div>
                             </div>
