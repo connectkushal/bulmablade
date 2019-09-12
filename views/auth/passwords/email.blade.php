@@ -8,6 +8,12 @@
                 <p class="title">{{ __('Reset Password') }}</p>
                 <hr><br>
 
+            @if (session('status'))
+                <div class="notification is-success">
+                    {{ session('status') }}
+                </div>
+            <br>
+            @endif
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf
 
@@ -32,7 +38,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="field is-horizontal">
                     <div class="field-label">
                         <!-- Left empty for spacing -->
@@ -48,12 +53,7 @@
                     </div>
                 </form>        
             </div>
-            <br>
-            @if (session('status'))
-                <div class="notification is-success">
-                    {{ session('status') }}
-                </div>
-            @endif
+                    <br>
         </div>
     </div>
 </div>

@@ -6,10 +6,10 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">
-                    {{ config('app.name') }}
+                    {{config('app.name', 'Website')}}
                 </h1>
                 <h2 class="subtitle">
-                    one stop for all exam preparations
+                    A short description about the website
                 </h2>
             </div>
         </div>

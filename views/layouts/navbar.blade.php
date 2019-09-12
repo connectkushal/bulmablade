@@ -1,7 +1,7 @@
 <nav class="navbar is-white">
     <div class="navbar-brand">
         <a class="navbar-item  is-hoverable" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            {{ config('app.name', 'Website') }}
         </a>
     
     <!-- aria-label="Toggle navigation" // from part from data-toggle till end copied from lv default -->

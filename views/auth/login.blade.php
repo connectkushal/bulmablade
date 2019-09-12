@@ -75,13 +75,15 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
+                                <div class="buttons">
                                     <button class="button is-link">
                                         {{ __('Login') }}
                                     </button>
 
-                                    <a class="button is-light" href="{{ route('password.request') }}">
+                                    <button class="button is-light" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
-                                    </a>
+                                    </button>
+                                </div>
                                 </div>
                             </div>
                         </div>

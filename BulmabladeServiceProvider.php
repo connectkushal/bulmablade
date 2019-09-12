@@ -12,6 +12,12 @@ class BulmabladeServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                InstallCommand::class
+            ]);
+        }
+
         $this->publishes([
             __DIR__.'/views' => resource_path('views'),
             __DIR__.'/config/bulmablade.php' => config_path('bulmablade.php'),
