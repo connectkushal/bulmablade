@@ -16,7 +16,10 @@ class InstallCommand extends \Illuminate\Console\Command
         /*     $force = true; */
         /* } */
 
-        \Artisan::call('vendor:publish', ['--force'=>true]);
+        \Artisan::call('vendor:publish', [
+            '--provider' => 'connectkushal/bulmablade',
+            '--force' => true 
+        ]);
 
         $this->publishHomeController();
         $this->updateRoutesFile();
