@@ -50,7 +50,7 @@
             </div>
             <br>
             @if (session('status'))
-                <div class="alert alert-success">
+                <div class="notification is-success">
                     {{ session('status') }}
                 </div>
             @endif

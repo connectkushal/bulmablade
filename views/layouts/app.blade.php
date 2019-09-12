@@ -8,13 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'App') }}</title>
 
     <!-- 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
     -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/config('bulmablade.version')/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script >
     <style>
         body{
@@ -36,11 +36,11 @@
 
     <hr>
 
-    <footer class="footer">
+  <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
       <p>
-        <strong>App</strong> by <a>Kushal</a>. The source code is licensed
+        <strong>{{ config('app.name', 'App') }}</strong> by <a>Kushal</a>. The source code is licensed
         <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
         is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
       </p>
